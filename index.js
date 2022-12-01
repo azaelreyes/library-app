@@ -18,54 +18,87 @@
   //To do this, create divs and add innerHTML
   const divContainer = document.getElementById("container");
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   function displayEachBook(){
     for (let i = myLibrary.length-1; i < myLibrary.length; i++) {
       
         //Creating card for content of book
         const newDiv = document.createElement("div");
-        newDiv.className ="bookDiv";
+        newDiv.className=("bookDiv");
         newDiv.innerHTML= "<p><b>Title:</b>"+ myLibrary[i].title+"</p>"+
                           "<p><b>Author:</b> "+myLibrary[i].author+"</p>"+
                           "<p><b>Pages:</b> "+myLibrary[i].pages+"</p>"+
-                          "<p class='readBool'"+"><b>Book read?</b>: "+ ifRead(myLibrary[i].read) +"</p>";
+                          "<p id ='"+i+"'><b>Book read?: </b> "+ ifRead(myLibrary[i].read) +"</p>";
         divContainer.appendChild(newDiv);
+
+
         //add remove button
         const removeButton =document.createElement("button");
         removeButton.innerHTML="Remove";
-
+        removeButton.classList.add("displayButton");
         
-
         //event listener to delete content of book when remove button is pressed
+        
         removeButton.addEventListener("click", () => {
           newDiv.remove();
+          delete myLibrary[i];
         });
       
         //add read button
         const readButton = document.createElement("button");
-        readButton.innerHTML="Click if book read";
-        readButton.classList.add(i+"rmBtn");
-
+        readButton.innerHTML="Book Read?";
         //toggle read button
-        newDiv.appendChild(readButton);
-        newDiv.appendChild(removeButton);
-        
-        const readBool = document.getElementsByClassName("readBool");
-
-
+        const readBool = document.getElementById(i);
         readButton.addEventListener("click", () => {
+
           if (ifRead(myLibrary[i].read)=="Yes"){
             myLibrary[i].read=false;
-            readBool[i].innerHTML="<b>Book read?</b>: "+ifRead(myLibrary[i].read);
+            readBool.innerHTML="<b>Book read?: </b> "+ifRead(myLibrary[i].read);
             ;
           }else{
             myLibrary[i].read=true;
-            readBool[i].innerHTML="<b>Book read?</b>: "+ifRead(myLibrary[i].read);
+            readBool.innerHTML="<b>Book read?: </b> "+ifRead(myLibrary[i].read);
           }
+
         });
+
         
+        newDiv.appendChild(readButton);
+        newDiv.appendChild(removeButton);
+        readButton.classList.add("displayButton");
 
     };
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //function to return yes/no instead of true/false
   function ifRead(read){
@@ -104,10 +137,7 @@ function hideForm(){
   //gets from input
   // and adds info to MyLibrary 
   //when submit is pressed
-  //
-  //
-  //
-
+  
   const submitBtn = document.getElementById("submitNewBookInfo");
   submitBtn.addEventListener("click", function(event){
     event.preventDefault();
