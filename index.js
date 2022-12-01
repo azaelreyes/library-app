@@ -18,24 +18,6 @@
   //To do this, create divs and add innerHTML
   const divContainer = document.getElementById("container");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   function displayEachBook(){
     for (let i = myLibrary.length-1; i < myLibrary.length; i++) {
       
@@ -86,19 +68,6 @@
 
     };
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //function to return yes/no instead of true/false
   function ifRead(read){
@@ -157,6 +126,5 @@ function hideForm(){
     
   });
 
-//button on each book's display to remove the book from library
 
 
