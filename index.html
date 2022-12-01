@@ -4,11 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
     <link rel="stylesheet" href="./styles.css">
-    <script src="./index.html" defer></script>
+    <script src="index.js" defer></script>
 </head>
 <body>
+    <h1>My Library</h1>
+    <button id="newBookBtn">New Book</button>
+    <form id="form" >
+        <label >Title</label>
+        <input id="titleInput" type="text" /> <br>
+        <label>Author</label>
+        <input id="authorInput" type="text" /><br>
+        <label>Pages</label>
+        <input id="pagesInput"type="number" /><br>
+        <label>Check if book read?</label>
+        <input id="readInput" type="checkbox" /><br>
+        <button type="submit" id="submitNewBookInfo" >Submit</button>
+        <button id="exitNewBookForm" >Exit</button>
+    </form>
+
+
+    <div id="container">
+    </div>
     
 </body>
 </html>
